@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentAllCharacters">
+
+    <fragment
+        android:id="@+id/fragmentAllCharacters"
+        android:name="ru.aleynikov.recyclerview.ui.FragmentAllCharacters"
+        android:label="@string/label_character_list"
+        tools:layout="@layout/fragment_all_characters">
+        <action
+            android:id="@+id/action_fragmentAllCharacters_to_fragmentSingleCharacter"
+            app:destination="@id/fragmentSingleCharacter" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSingleCharacter"
+        android:name="ru.aleynikov.recyclerview.ui.FragmentSingleCharacter"
+        android:label="SingleCharacterFragment"
+        tools:layout="@layout/fragment_single_character">
+        <action
+            android:id="@+id/action_fragmentSingleCharacter_to_fragmentAllCharacters"
+            app:destination="@id/fragmentAllCharacters" />
+        <argument
+            android:name="singleCharacter"
+            app:argType="ru.aleynikov.recyclerview.api.CharacterDto" />
+    </fragment>
+</navigation>
